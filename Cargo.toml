@@ -1,0 +1,7 @@
+[package]
+name = "sudoku"
+version = "0.1.0"
+edition = "2021"
+description = "Sudoku Solver from a gist I had made in 2019 https://gist.github.com/yoyomo/a694d9e0add94537728b413bdf961064"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
