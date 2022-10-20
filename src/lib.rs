@@ -1,3 +1,6 @@
+use wasm_bindgen::prelude::*;
+use gloo_utils::format::JsValueSerdeExt;
+
 struct Answer {
     row: usize,
     column: usize,
@@ -125,4 +128,10 @@ pub fn solve_sudoku(board: [[u8; 9]; 9]) -> Vec<Vec<u8>> {
 
     while find_one_answer(&mut answers, &mut possible_answers) {}
     answers
+}
+
+#[wasm_bindgen]
+pub fn solve_sudoku_js(board: JsValue) -> JsValue {
+    let board_rs = board.into_serde().unwrap();
+    JsValue::from_serde(&solve_sudoku(board_rs)).unwrap()
 }
